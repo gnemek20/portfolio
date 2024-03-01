@@ -13,21 +13,25 @@ export default function Home() {
   type directionType = 'up' | 'down';
 
   const [pageInnerHeight, setPageInnerHeight] = useState<number>(0);
-  const [touchedPageY, setTouchedPageY] = useState<number>(0);
+  const [touchedClientY, setTouchedClientY] = useState<number>(0);
+
+  const preventEvent = (event: Event) => {
+    event.preventDefault();
+  }
 
   const onWheel = (event: React.WheelEvent<HTMLDivElement>) => {
     if (event.deltaY > 0) movePage('down');
     else if (event.deltaY < 0) movePage('up');
   }
   const onTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    setTouchedPageY(event.touches[0].pageY);
+    setTouchedClientY(event.touches[0].clientY);
   }
   const onTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
     const offset: number = 50;
-    const movedPageY: number = event.touches[0].pageY;
+    const movedClientY: number = event.touches[0].clientY;
 
-    if (touchedPageY > (movedPageY + offset)) movePage('down');
-    else if (touchedPageY < (movedPageY - offset)) movePage('up');
+    if (touchedClientY > (movedClientY + offset)) movePage('down');
+    else if (touchedClientY < (movedClientY - offset)) movePage('up');
   }
   const movePage = (direction: directionType) => {
     const currentPageTop: number = homeRef.current?.scrollTop ? homeRef.current?.scrollTop : 0;
@@ -60,6 +64,9 @@ export default function Home() {
   useEffect(() => {
     window.addEventListener('resize', onResizeHeight);
     onResizeHeight();
+
+    window.addEventListener('wheel', preventEvent, { passive: false });
+    window.addEventListener('touchmove', preventEvent, { passive: false });
   }, []);
 
   return (
