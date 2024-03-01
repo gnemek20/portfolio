@@ -66,6 +66,7 @@ export default function Home() {
     onResizeHeight();
 
     window.addEventListener('wheel', preventEvent, { passive: false });
+    window.addEventListener('touchstart', preventEvent, { passive: false });
     window.addEventListener('touchmove', preventEvent, { passive: false });
   }, []);
 
