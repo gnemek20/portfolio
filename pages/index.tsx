@@ -13,11 +13,10 @@ export default function Home() {
   type directionType = 'up' | 'down';
 
   const [pageInnerHeight, setPageInnerHeight] = useState<number>(0);
+  const [currentPageNumber, setCurrentPageNumber] = useState<number>(0);
   const [touchedClientY, setTouchedClientY] = useState<number>(0);
 
-  const preventEvent = (event: Event) => {
-    event.preventDefault();
-  }
+  const [isTransitionRunning, setIsTransitionRunning] = useState<boolean>(false);
 
   const onWheel = (event: React.WheelEvent<HTMLDivElement>) => {
     if (event.deltaY > 0) movePage('down');
@@ -34,12 +33,10 @@ export default function Home() {
     else if (touchedClientY < (movedClientY - offset)) movePage('up');
   }
   const movePage = (direction: directionType) => {
-    const currentPageTop: number = homeRef.current?.scrollTop ? Math.trunc(homeRef.current?.scrollTop) : 0;
-    if (currentPageTop % pageInnerHeight !== 0) return;
+    if (isTransitionRunning) return;
     
     const startPageNumber: number = 0;
     const lastPageNumber: number = 2;
-    const currentPageNumber: number = currentPageTop / pageInnerHeight;
     let nextPageNumber: number = currentPageNumber;
     
     if (direction === 'up') {
@@ -49,10 +46,12 @@ export default function Home() {
       nextPageNumber = (currentPageNumber + 1) < lastPageNumber ? (currentPageNumber + 1) : lastPageNumber;
     }
 
-    homeRef.current?.scrollTo({
-      top: pageInnerHeight * nextPageNumber,
-      behavior: 'smooth'
-    });
+    homeRef.current?.style.setProperty('transform', `translateY(-${pageInnerHeight * nextPageNumber}px)`);
+    setCurrentPageNumber(nextPageNumber);
+    setIsTransitionRunning(true);
+  }
+  const onHomeRefTransitionEnd = () => {
+    setIsTransitionRunning(false);
   }
 
   // resize
@@ -65,8 +64,7 @@ export default function Home() {
     window.addEventListener('resize', onResizeHeight);
     onResizeHeight();
 
-    window.addEventListener('wheel', preventEvent, { passive: false });
-    window.addEventListener('touchmove', preventEvent, { passive: false });
+    homeRef.current?.addEventListener('transitionend', onHomeRefTransitionEnd);
   }, []);
 
   return (

@@ -1,12 +1,7 @@
 .home {
-  height: var(--vh);
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
-}
-.home::-webkit-scrollbar {
-  display: none;
+  transform: translateY(0px);
+  transition: all 700ms;
+  touch-action: none;
 }
 
 .page {
