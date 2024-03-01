@@ -53,10 +53,6 @@ export default function Home() {
 
   // resize
   const onResizeHeight = () => {
-    homeRef.current?.scrollTo({
-      top: 0
-    });
-
     document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
     setPageInnerHeight(window.innerHeight);
   }
