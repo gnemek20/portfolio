@@ -47,7 +47,11 @@ const page1 = (props: page1Props) => {
         <hr />
         <h4>FrontEnd Developer</h4>
       </div>
-      <Image className={styles.downArrowImage} src={downArrowImage.src} alt={downArrowImage.alt}></Image>
+      <Image
+        className={styles.downArrowImage}
+        src={downArrowImage.src}
+        alt={downArrowImage.alt}
+      ></Image>
     </div>
   )
 }
