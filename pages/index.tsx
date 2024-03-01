@@ -1,5 +1,8 @@
 import styles from "@/styles/Home.module.scss";
 import { useEffect, useRef, useState } from "react";
+import Page1 from "@/pages/components/page1";
+import Page2 from "@/pages/components/page2";
+import Page3 from "@/pages/components/page3";
 
 export default function Home() {
   // ref
@@ -83,13 +86,13 @@ export default function Home() {
       onTouchMove={(event) => onTouchMove(event)}
     >
       <div className={styles.page}>
-        <h1>1</h1> 
+        <Page1 />
       </div>
       <div className={styles.page}>
-        <h1>2</h1>
+        <Page2 />
       </div>
       <div className={styles.page}>
-        <h1>3</h1>
+        <Page3 />
       </div>
     </div>
   );
