@@ -79,13 +79,16 @@ export default function Home() {
       onTouchMove={(event) => onTouchMove(event)}
     >
       <div className={styles.page}>
-        <h1>1</h1>
+        <h1>{ homeRef.current?.scrollTop }</h1>
+        <h1>{ pageInnerHeight }</h1>
       </div>
       <div className={styles.page}>
-        <h1>2</h1>
+        <h1>{ homeRef.current?.scrollTop }</h1>
+        <h1>{ pageInnerHeight }</h1>
       </div>
       <div className={styles.page}>
-        <h1>3</h1>
+        <h1>{ homeRef.current?.scrollTop }</h1>
+        <h1>{ pageInnerHeight }</h1>
       </div>
     </div>
   );
