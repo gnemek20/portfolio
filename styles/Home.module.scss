@@ -1,7 +1,8 @@
 .home {
   height: var(--vh);
   overflow-y: scroll;
-  touch-action: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .home::-webkit-scrollbar {
   display: none;
