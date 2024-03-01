@@ -1,0 +1,14 @@
+.home {
+  height: 100vh;
+  overflow-y: scroll;
+}
+.home::-webkit-scrollbar {
+  display: none;
+}
+
+.page {
+  height: -webkit-fill-available;
+}
+
+@media screen and (max-width: 768px) {
+}
