@@ -68,7 +68,6 @@ export default function Home() {
     const windowInnerHeight = window.innerHeight;
 
     homeRef.current?.style.setProperty('transform', `translateY(-${windowInnerHeight * currentPageNumber}px)`);
-    document.documentElement.style.setProperty('--vh', `${windowInnerHeight}px`);
     setPageInnerHeight(windowInnerHeight);
   }
 
@@ -91,13 +90,13 @@ export default function Home() {
       onTouchStart={(event) => onTouchStart(event)}
       onTouchMove={(event) => onTouchMove(event)}
     >
-      <div className={styles.page}>
+      <div className={styles.page} style={{height: pageInnerHeight}}>
         <Page1 play={isVideoRunning} />
       </div>
-      <div className={styles.page}>
+      <div style={{height: pageInnerHeight}}>
         <Page2 />
       </div>
-      <div className={styles.page}>
+      <div style={{height: pageInnerHeight}}>
         <Page3 />
       </div>
     </div>

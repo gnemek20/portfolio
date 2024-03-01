@@ -17,6 +17,8 @@ const page1 = (props: page1Props) => {
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  const videoSrc = "https://vod-progressive.akamaized.net/exp=1709345247~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4722%2F5%2F148614367%2F452088318.mp4~hmac=2d8741944fc7cdb0ce803a6ae3cd59cc7e736a54adb79bd87348280bdfded8f2/vimeo-prod-skyfire-std-us/01/4722/5/148614367/452088318.mp4?filename=file.mp4";
+
   const downArrowImage: imageProps = {
     src: require('@/public/icons/downArrow.svg'),
     alt: 'downArrow'
@@ -35,12 +37,11 @@ const page1 = (props: page1Props) => {
       <video
         ref={videoRef}
         className={styles.video}
-        playsInline
         muted
         autoPlay
         loop
       >
-        <source src="https://cdn.pixabay.com/vimeo/148614367/1625.mp4?width=640&hash=c99e4b60975fc73d61c6447f8635f524009ab7b2" />
+        <source src={videoSrc} />
       </video>
       <div className={styles.content}>
         <h1 className={styles.name}>GWON MINSEOK</h1>
