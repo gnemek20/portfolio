@@ -69,6 +69,7 @@ export default function Home() {
   }
 
   useEffect(() => {
+    window.addEventListener('resize', onResizeHeight);
     onResizeHeight();
   }, []);
 
@@ -76,7 +77,6 @@ export default function Home() {
     <div
       ref={homeRef}
       className={styles.home}
-      onResize={onResizeHeight}
       onTransitionEnd={onHomeRefTransitionEnd}
       onWheel={(event) => onWheel(event)}
       onTouchStart={(event) => onTouchStart(event)}
