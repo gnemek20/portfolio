@@ -39,7 +39,7 @@ export default function Home() {
     const startPageNumber: number = 0;
     const lastPageNumber: number = 2;
     let nextPageNumber: number = startPageNumber;
-    
+
     if (direction === 'up') {
       if (currentPageNumber === startPageNumber) return;
       nextPageNumber = currentPageNumber - 1;
@@ -61,27 +61,29 @@ export default function Home() {
 
   // resize
   const onResizeHeight = () => {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
-    setPageInnerHeight(window.innerHeight);
+    const windowInnerHeight = window.innerHeight;
+
+    homeRef.current?.style.setProperty('transform', `translateY(-${windowInnerHeight * currentPageNumber}px)`);
+    document.documentElement.style.setProperty('--vh', `${windowInnerHeight}px`);
+    setPageInnerHeight(windowInnerHeight);
   }
 
   useEffect(() => {
-    window.addEventListener('resize', onResizeHeight);
     onResizeHeight();
-
-    homeRef.current?.addEventListener('transitionend', onHomeRefTransitionEnd);
   }, []);
 
   return (
     <div
       ref={homeRef}
       className={styles.home}
+      onResize={onResizeHeight}
+      onTransitionEnd={onHomeRefTransitionEnd}
       onWheel={(event) => onWheel(event)}
       onTouchStart={(event) => onTouchStart(event)}
       onTouchMove={(event) => onTouchMove(event)}
     >
       <div className={styles.page}>
-        <h1>1</h1>
+        <h1>1</h1> 
       </div>
       <div className={styles.page}>
         <h1>2</h1>
