@@ -5,6 +5,7 @@ export default function Home() {
   // ref
   const homeRef = useRef<HTMLDivElement>(null);
 
+  // console
   const consoleLog = () => {
     console.log('console!');
   }
@@ -37,19 +38,23 @@ export default function Home() {
     
     const startPageNumber: number = 0;
     const lastPageNumber: number = 2;
-    let nextPageNumber: number = currentPageNumber;
+    let nextPageNumber: number = startPageNumber;
     
     if (direction === 'up') {
-      nextPageNumber = (currentPageNumber - 1) > startPageNumber ? (currentPageNumber - 1) : startPageNumber;
+      if (currentPageNumber === startPageNumber) return;
+      nextPageNumber = currentPageNumber - 1;
     }
     else if (direction === 'down') {
-      nextPageNumber = (currentPageNumber + 1) < lastPageNumber ? (currentPageNumber + 1) : lastPageNumber;
+      if (currentPageNumber === lastPageNumber) return;
+      nextPageNumber = currentPageNumber + 1;
     }
 
     homeRef.current?.style.setProperty('transform', `translateY(-${pageInnerHeight * nextPageNumber}px)`);
-    setCurrentPageNumber(nextPageNumber);
     setIsTransitionRunning(true);
+    setCurrentPageNumber(nextPageNumber);
   }
+
+  // transition
   const onHomeRefTransitionEnd = () => {
     setIsTransitionRunning(false);
   }
