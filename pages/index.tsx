@@ -66,7 +66,6 @@ export default function Home() {
     onResizeHeight();
 
     window.addEventListener('wheel', preventEvent, { passive: false });
-    window.addEventListener('touchstart', preventEvent, { passive: false });
     window.addEventListener('touchmove', preventEvent, { passive: false });
   }, []);
 
@@ -79,16 +78,13 @@ export default function Home() {
       onTouchMove={(event) => onTouchMove(event)}
     >
       <div className={styles.page}>
-        <h1>{ homeRef.current?.scrollTop }</h1>
-        <h1>{ pageInnerHeight }</h1>
+        <h1>1</h1>
       </div>
       <div className={styles.page}>
-        <h1>{ homeRef.current?.scrollTop }</h1>
-        <h1>{ pageInnerHeight }</h1>
+        <h1>2</h1>
       </div>
       <div className={styles.page}>
-        <h1>{ homeRef.current?.scrollTop }</h1>
-        <h1>{ pageInnerHeight }</h1>
+        <h1>3</h1>
       </div>
     </div>
   );
