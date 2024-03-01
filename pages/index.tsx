@@ -20,6 +20,7 @@ export default function Home() {
   const [currentPageNumber, setCurrentPageNumber] = useState<number>(0);
   const [touchedClientY, setTouchedClientY] = useState<number>(0);
 
+  const [isVideoRunning, setIsVideoRunning] = useState<boolean>(true);
   const [isTransitionRunning, setIsTransitionRunning] = useState<boolean>(false);
 
   const onWheel = (event: React.WheelEvent<HTMLDivElement>) => {
@@ -72,6 +73,11 @@ export default function Home() {
   }
 
   useEffect(() => {
+    if (currentPageNumber === 0) setIsVideoRunning(true);
+    else setIsVideoRunning(false);
+  }, [currentPageNumber]);
+
+  useEffect(() => {
     window.addEventListener('resize', onResizeHeight);
     onResizeHeight();
   }, []);
@@ -86,7 +92,7 @@ export default function Home() {
       onTouchMove={(event) => onTouchMove(event)}
     >
       <div className={styles.page}>
-        <Page1 />
+        <Page1 play={isVideoRunning} />
       </div>
       <div className={styles.page}>
         <Page2 />
