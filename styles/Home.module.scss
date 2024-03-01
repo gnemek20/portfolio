@@ -1,8 +1,8 @@
 .home {
-  height: 100vh;
+  height: var(--vh);
   overflow-y: hidden;
 }
 
 .page {
-  height: -webkit-fill-available;
+  height: var(--vh);
 }

@@ -12,7 +12,7 @@ export default function Home() {
   // scroll
   type directionType = 'up' | 'down';
 
-  const [innerHeight, setInnerHeight] = useState<number>(0);
+  const [pageInnerHeight, setPageInnerHeight] = useState<number>(0);
   const [touchedPageY, setTouchedPageY] = useState<number>(0);
 
   const onWheel = (event: React.WheelEvent<HTMLDivElement>) => {
@@ -31,11 +31,11 @@ export default function Home() {
   }
   const movePage = (direction: directionType) => {
     const currentPageTop: number = homeRef.current?.scrollTop ? homeRef.current?.scrollTop : 0;
-    if (currentPageTop % innerHeight !== 0) return;
+    if (currentPageTop % pageInnerHeight !== 0) return;
     
     const startPageNumber: number = 0;
     const lastPageNumber: number = 2;
-    const currentPageNumber: number = currentPageTop / innerHeight;
+    const currentPageNumber: number = currentPageTop / pageInnerHeight;
     let nextPageNumber: number = currentPageNumber;
     
     if (direction === 'up') {
@@ -46,7 +46,7 @@ export default function Home() {
     }
 
     homeRef.current?.scrollTo({
-      top: innerHeight * nextPageNumber,
+      top: pageInnerHeight * nextPageNumber,
       behavior: 'smooth'
     });
   }
@@ -57,7 +57,8 @@ export default function Home() {
       top: 0
     });
 
-    setInnerHeight(window.innerHeight);
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+    setPageInnerHeight(window.innerHeight);
   }
 
   useEffect(() => {
