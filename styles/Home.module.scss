@@ -1,6 +1,10 @@
 .home {
   height: var(--vh);
-  overflow-y: hidden;
+  overflow-y: scroll;
+  touch-action: none;
+}
+.home::-webkit-scrollbar {
+  display: none;
 }
 
 .page {
