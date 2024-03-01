@@ -1,5 +1,8 @@
 import styles from "@/styles/Home.module.scss";
 import { useEffect, useRef, useState } from "react";
+import Page1 from "@/pages/components/page1";
+import Page2 from "@/pages/components/page2";
+import Page3 from "@/pages/components/page3";
 
 export default function Home() {
   // ref
@@ -17,6 +20,7 @@ export default function Home() {
   const [currentPageNumber, setCurrentPageNumber] = useState<number>(0);
   const [touchedClientY, setTouchedClientY] = useState<number>(0);
 
+  const [isVideoRunning, setIsVideoRunning] = useState<boolean>(true);
   const [isTransitionRunning, setIsTransitionRunning] = useState<boolean>(false);
 
   const onWheel = (event: React.WheelEvent<HTMLDivElement>) => {
@@ -39,7 +43,7 @@ export default function Home() {
     const startPageNumber: number = 0;
     const lastPageNumber: number = 2;
     let nextPageNumber: number = startPageNumber;
-    
+
     if (direction === 'up') {
       if (currentPageNumber === startPageNumber) return;
       nextPageNumber = currentPageNumber - 1;
@@ -61,33 +65,40 @@ export default function Home() {
 
   // resize
   const onResizeHeight = () => {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
-    setPageInnerHeight(window.innerHeight);
+    const windowInnerHeight = window.innerHeight;
+
+    homeRef.current?.style.setProperty('transform', `translateY(-${windowInnerHeight * currentPageNumber}px)`);
+    document.documentElement.style.setProperty('--vh', `${windowInnerHeight}px`);
+    setPageInnerHeight(windowInnerHeight);
   }
+
+  useEffect(() => {
+    if (currentPageNumber === 0) setIsVideoRunning(true);
+    else setIsVideoRunning(false);
+  }, [currentPageNumber]);
 
   useEffect(() => {
     window.addEventListener('resize', onResizeHeight);
     onResizeHeight();
-
-    homeRef.current?.addEventListener('transitionend', onHomeRefTransitionEnd);
   }, []);
 
   return (
     <div
       ref={homeRef}
       className={styles.home}
+      onTransitionEnd={onHomeRefTransitionEnd}
       onWheel={(event) => onWheel(event)}
       onTouchStart={(event) => onTouchStart(event)}
       onTouchMove={(event) => onTouchMove(event)}
     >
       <div className={styles.page}>
-        <h1>1</h1>
+        <Page1 play={isVideoRunning} />
       </div>
       <div className={styles.page}>
-        <h1>2</h1>
+        <Page2 />
       </div>
       <div className={styles.page}>
-        <h1>3</h1>
+        <Page3 />
       </div>
     </div>
   );
