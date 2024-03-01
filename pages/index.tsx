@@ -34,7 +34,7 @@ export default function Home() {
     else if (touchedClientY < (movedClientY - offset)) movePage('up');
   }
   const movePage = (direction: directionType) => {
-    const currentPageTop: number = homeRef.current?.scrollTop ? homeRef.current?.scrollTop : 0;
+    const currentPageTop: number = homeRef.current?.scrollTop ? Math.trunc(homeRef.current?.scrollTop) : 0;
     if (currentPageTop % pageInnerHeight !== 0) return;
     
     const startPageNumber: number = 0;
