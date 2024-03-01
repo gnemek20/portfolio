@@ -8,11 +8,6 @@ export default function Home() {
   // ref
   const homeRef = useRef<HTMLDivElement>(null);
 
-  // console
-  const consoleLog = () => {
-    console.log('console!');
-  }
-
   // scroll
   type directionType = 'up' | 'down';
 
@@ -90,7 +85,7 @@ export default function Home() {
       onTouchStart={(event) => onTouchStart(event)}
       onTouchMove={(event) => onTouchMove(event)}
     >
-      <div className={styles.page} style={{height: pageInnerHeight}}>
+      <div style={{height: pageInnerHeight}}>
         <Page1 play={isVideoRunning} />
       </div>
       <div style={{height: pageInnerHeight}}>
