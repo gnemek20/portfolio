@@ -35,12 +35,12 @@ export default function Home() {
   const movePage = (direction: directionType) => {
     if (isTransitionRunning) return;
     
-    const startPageNumber: number = 0;
+    const firstPageNumber: number = 0;
     const lastPageNumber: number = 2;
-    let nextPageNumber: number = startPageNumber;
+    let nextPageNumber: number = firstPageNumber;
 
     if (direction === 'up') {
-      if (currentPageNumber === startPageNumber) return;
+      if (currentPageNumber === firstPageNumber) return;
       nextPageNumber = currentPageNumber - 1;
     }
     else if (direction === 'down') {
