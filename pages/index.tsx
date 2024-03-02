@@ -88,10 +88,12 @@ export default function Home() {
       onTouchMove={(event) => onTouchMove(event)}
     >
       <div style={{height: pageInnerHeight}}>
-        <Page1 play={isVideoRunning} />
+        {/* <Page1 play={isVideoRunning} /> */}
+        <h1>1</h1>
       </div>
       <div style={{height: pageInnerHeight}}>
-        <Page2 />
+        {/* <Page2 /> */}
+        <h1>2</h1>
       </div>
       <div style={{height: pageInnerHeight}}>
         <Page3 />
