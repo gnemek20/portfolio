@@ -29,34 +29,45 @@ const page2 = () => {
     alt: 'foldedNoteIcon'
   }
 
-  const nextLogo: imageProps = {
-    src: require('@/public/logos/nextLogo.png'),
-    alt: 'nextLogo'
+  // skill list
+  interface skillListProps {
+    name: string,
+    image: imageType
   }
-  const reactLogo: imageProps = {
-    src: require('@/public/logos/reactLogo.png'),
-    alt: 'reactLogo'
-  }
-  const vueLogo: imageProps = {
-    src: require('@/public/logos/vueLogo.png'),
-    alt: 'vueLogo'
-  }
-  const expressLogo: imageProps = {
-    src: require('@/public/logos/expressLogo.png'),
-    alt: 'expressLogo'
-  }
-  const mysqlLogo: imageProps = {
-    src: require('@/public/logos/mysqlLogo.png'),
-    alt: 'mysqlLogo'
-  }
-  const pythonLogo: imageProps = {
-    src: require('@/public/logos/pythonLogo.png'),
-    alt: 'pythonLogo'
-  }
-  const githubLogo: imageProps = {
-    src: require('@/public/logos/githubLogo.png'),
-    alt: 'githubLogo'
-  }
+
+  const mainSkillList: Array<skillListProps> = [
+    {
+      name: 'NextJS',
+      image: require('@/public/logos/nextLogo.png')
+    },
+    {
+      name: 'VueJS',
+      image: require('@/public/logos/vueLogo.png')
+    },
+    {
+      name: 'ReactJS',
+      image: require('@/public/logos/reactLogo.png')
+    }
+  ]
+
+  const subSkillList: Array<skillListProps> = [
+    {
+      name: 'Express',
+      image: require('@/public/logos/expressLogo.png')
+    },
+    {
+      name: 'MySQL',
+      image: require('@/public/logos/mysqlLogo.png')
+    },
+    {
+      name: 'Python',
+      image: require('@/public/logos/pythonLogo.png')
+    },
+    {
+      name: 'GitHub',
+      image: require('@/public/logos/githubLogo.png')
+    }
+  ]
 
   // check mobile
   const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -117,30 +128,18 @@ const page2 = () => {
                     <h1>Main Skill</h1>
                   </div>
                   <div className={styles.skillList}>
-                    <div className={styles.skill}>
-                      <div className={styles.skillImage}>
-                        <Image src={nextLogo.src} alt={nextLogo.alt} width={30}></Image>
-                      </div>
-                      <div className={styles.skillDescription}>
-                        <h3>NextJS</h3>
-                      </div>
-                    </div>
-                    <div className={styles.skill}>
-                      <div className={styles.skillImage}>
-                        <Image src={vueLogo.src} alt={vueLogo.alt} width={30}></Image>
-                      </div>
-                      <div className={styles.skillDescription}>
-                        <h3>VueJS</h3>
-                      </div>
-                    </div>
-                    <div className={styles.skill}>
-                      <div className={styles.skillImage}>
-                        <Image src={reactLogo.src} alt={reactLogo.alt} width={30}></Image>
-                      </div>
-                      <div className={styles.skillDescription}>
-                        <h3>ReactJS</h3>
-                      </div>
-                    </div>
+                    {
+                      mainSkillList.map((skill: skillListProps) => (
+                        <div className={styles.skill}>
+                          <div className={styles.skillImage}>
+                            {/* <Image src={skill.image} alt={skill.name} width={32}></Image> */}
+                          </div>
+                          <div className={styles.skillDescription}>
+                            <h3>{ skill.name }</h3>
+                          </div>
+                        </div>
+                      ))
+                    }
                   </div>
                 </div>
                 <div className={styles.subSkill}>
@@ -148,38 +147,18 @@ const page2 = () => {
                     <h1>Sub Skill</h1>
                   </div>
                   <div className={styles.skillList}>
-                    <div className={styles.skill}>
-                      <div className={styles.skillImage}>
-                        <Image src={expressLogo.src} alt={expressLogo.alt} width={30}></Image>
-                      </div>
-                      <div className={styles.skillDescription}>
-                        <h3>Express</h3>
-                      </div>
-                    </div>
-                    <div className={styles.skill}>
-                      <div className={styles.skillImage}>
-                        <Image src={mysqlLogo.src} alt={mysqlLogo.alt} width={30}></Image>
-                      </div>
-                      <div className={styles.skillDescription}>
-                        <h3>MySQL</h3>
-                      </div>
-                    </div>
-                    <div className={styles.skill}>
-                      <div className={styles.skillImage}>
-                        <Image src={pythonLogo.src} alt={pythonLogo.alt} width={30}></Image>
-                      </div>
-                      <div className={styles.skillDescription}>
-                        <h3>Python</h3>
-                      </div>
-                    </div>
-                    <div className={styles.skill}>
-                      <div className={styles.skillImage}>
-                        <Image src={githubLogo.src} alt={githubLogo.alt} width={30}></Image>
-                      </div>
-                      <div className={styles.skillDescription}>
-                        <h3>GitHub</h3>
-                      </div>
-                    </div>
+                    {
+                      subSkillList.map((skill: skillListProps) => (
+                        <div className={styles.skill}>
+                          <div className={styles.skillImage}>
+                            {/* <Image src={skill.image} alt={skill.name} width={32}></Image> */}
+                          </div>
+                          <div className={styles.skillDescription}>
+                            <h3>{ skill.name }</h3>
+                          </div>
+                        </div>
+                      ))
+                    }
                   </div>
                 </div>
               </div>
