@@ -81,7 +81,7 @@ export default function Home() {
     setTimeout(() => {
       console.log('scrollTo 0, 0')
       window.scrollTo(0, 0);
-    }, 10);
+    }, 500);
 
     window.addEventListener('resize', onResizeHeight);
     onResizeHeight();
