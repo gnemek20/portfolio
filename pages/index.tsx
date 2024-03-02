@@ -75,7 +75,7 @@ export default function Home() {
 
   useEffect(() => {
     // window.addEventListener('resize', onResizeHeight);
-    // onResizeHeight();
+    onResizeHeight();
   }, []);
 
   return (
