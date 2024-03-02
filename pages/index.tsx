@@ -71,6 +71,8 @@ export default function Home() {
 
   useEffect(() => {
     homeRef.current?.style.setProperty('transform', `translateY(-${pageInnerHeight * currentPageNumber}px)`);
+    console.log(pageInnerHeight, currentPageNumber);
+    console.log('page resized');
   }, [pageInnerHeight]);
 
   useEffect(() => {
