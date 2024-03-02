@@ -74,14 +74,9 @@ export default function Home() {
   }, [pageInnerHeight]);
 
   useEffect(() => {
-    // const interval = setInterval(() => {
-    //   if (window.scrollY !== 0) window.scrollTo(0, 0);
-    //   else if (window.scrollY === 0) clearInterval(interval);
-    // }, 100);
     setTimeout(() => {
-      console.log('scrollTo 0, 0')
       window.scrollTo(0, 0);
-    }, 500);
+    }, 100);
 
     window.addEventListener('resize', onResizeHeight);
     onResizeHeight();
