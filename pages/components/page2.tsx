@@ -70,17 +70,17 @@ const page2 = () => {
   ]
 
   // check mobile
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  // const [isMobile, setIsMobile] = useState<boolean>(false);
 
-  const checkIsMobile = () => {
-    if (window.innerWidth <= 1200 || window.innerHeight <= 800) setIsMobile(true);
-    else setIsMobile(false);
-  }
+  // const checkIsMobile = () => {
+  //   if (window.innerWidth <= 1200 || window.innerHeight <= 800) setIsMobile(true);
+  //   else setIsMobile(false);
+  // }
 
-  useEffect(() => {
-    window.addEventListener('resize', checkIsMobile);
-    checkIsMobile();
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener('resize', checkIsMobile);
+  //   checkIsMobile();
+  // }, []);
 
   // panel
   const leftArrowIcon: imageProps = {
@@ -107,11 +107,19 @@ const page2 = () => {
   return (
     <div className={styles.section}>
       <div className={styles.dimmed} />
-      <Image className={styles.backgroundImage} src={backgroundImage.src} alt={backgroundImage.alt}></Image>
+      <Image
+        className={styles.backgroundImage}
+        src={backgroundImage.src}
+        alt={backgroundImage.alt}
+      ></Image>
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.left}>
-            <Image className={styles.paper} src={paperLeftImage.src} alt={paperLeftImage.alt}></Image>
+            <Image
+              className={styles.paper}
+              src={paperLeftImage.src}
+              alt={paperLeftImage.alt}
+            ></Image>
             <div className={styles.content}>
               <div className={`${styles.panel} ${currentPanelNumber === firstPanelNumber && styles.active}`}>
                 <div className={styles.title}>
@@ -132,7 +140,11 @@ const page2 = () => {
                       mainSkillList.map((skill: skillListProps) => (
                         <div className={styles.skill}>
                           <div className={styles.skillImage}>
-                            {/* <Image src={skill.image} alt={skill.name} width={32}></Image> */}
+                            <Image
+                              src={skill.image}
+                              alt={skill.name}
+                              width={32}
+                            ></Image>
                           </div>
                           <div className={styles.skillDescription}>
                             <h3>{ skill.name }</h3>
@@ -151,7 +163,11 @@ const page2 = () => {
                       subSkillList.map((skill: skillListProps) => (
                         <div className={styles.skill}>
                           <div className={styles.skillImage}>
-                            {/* <Image src={skill.image} alt={skill.name} width={32}></Image> */}
+                            <Image
+                              src={skill.image}
+                              alt={skill.name}
+                              width={32}
+                            ></Image>
                           </div>
                           <div className={styles.skillDescription}>
                             <h3>{ skill.name }</h3>
@@ -164,18 +180,30 @@ const page2 = () => {
               </div>
               <div className={styles.swiper}>
                 <button className={`${currentPanelNumber === firstPanelNumber && styles.disabled}`} onClick={onClickPrevButton}>
-                  <Image src={leftArrowIcon.src} alt={leftArrowIcon.alt} width={30}></Image>
+                  <Image
+                    src={leftArrowIcon.src}
+                    alt={leftArrowIcon.alt}
+                    width={30}
+                  ></Image>
                   이전
                 </button>
                 <button className={`${currentPanelNumber === lastPanelNumber && styles.disabled}`} onClick={onClickNextButton}>
                   다음
-                  <Image src={rightArrowIcon.src} alt={rightArrowIcon.alt} width={30}></Image>
+                  <Image
+                    src={rightArrowIcon.src}
+                    alt={rightArrowIcon.alt}
+                    width={30}
+                  ></Image>
                 </button>
               </div>
             </div>
           </div>
           <div className={styles.right}>
-            <Image className={styles.paper} src={paperRightImage.src} alt={paperRightImage.alt}></Image>
+            <Image
+              className={styles.paper}
+              src={paperRightImage.src}
+              alt={paperRightImage.alt}
+            ></Image>
             <div className={styles.content}>
 
             </div>
