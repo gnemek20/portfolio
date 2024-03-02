@@ -42,7 +42,7 @@ const page1 = (props: page1Props) => {
         autoPlay
         loop
       >
-        <source src={videoSrc} />
+        {/* <source src={videoSrc} /> */}
       </video>
       <div className={styles.content}>
         <h1 className={styles.name}>GWON MINSEOK</h1>

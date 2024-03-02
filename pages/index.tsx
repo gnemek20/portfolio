@@ -91,7 +91,7 @@ export default function Home() {
         <Page1 play={isVideoRunning} />
       </div>
       <div style={{height: pageInnerHeight}}>
-        {/* <Page2 /> */}
+        <Page2 />
       </div>
       <div style={{height: pageInnerHeight}}>
         <Page3 />
