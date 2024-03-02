@@ -70,31 +70,17 @@ export default function Home() {
   }, [currentPageNumber]);
 
   useEffect(() => {
-    // homeRef.current?.style.setProperty('transform', `translateY(-${pageInnerHeight * currentPageNumber}px)`);
+    homeRef.current?.style.setProperty('transform', `translateY(-${pageInnerHeight * currentPageNumber}px)`);
   }, [pageInnerHeight]);
 
   useEffect(() => {
-    // window.addEventListener('resize', onResizeHeight);
-    onResizeHeight();
-
-    // window.setInterval(() => {
-    //   console.log(123);
-    //   window.clearInterval();
-    // }, 100)
-
     const interval = setInterval(() => {
-      console.log(window.scrollY);
-
-      if (window.scrollY !== 0) {
-        window.scrollTo(0, 0);
-        setTimeout(() => {
-          clearInterval(interval);
-        }, 500);
-      }
-      else if (window.scrollY === 0) {
-        clearInterval(interval)
-      }
+      if (window.scrollY !== 0) window.scrollTo(0, 0);
+      else if (window.scrollY === 0) clearInterval(interval);
     }, 100);
+
+    window.addEventListener('resize', onResizeHeight);
+    onResizeHeight();
   }, []);
 
   return (
@@ -107,16 +93,13 @@ export default function Home() {
       onTouchMove={(event) => onTouchMove(event)}
     >
       <div style={{height: pageInnerHeight}}>
-        {/* <Page1 play={isVideoRunning} /> */}
-        <h1>1</h1>
+        <Page1 play={isVideoRunning} />
       </div>
       <div style={{height: pageInnerHeight}}>
-        {/* <Page2 /> */}
-        <h1>2</h1>
+        <Page2 />
       </div>
       <div style={{height: pageInnerHeight}}>
-        {/* <Page3 /> */}
-        <h1>3</h1>
+        <Page3 />
       </div>
     </div>
   );
