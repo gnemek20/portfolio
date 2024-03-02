@@ -70,17 +70,17 @@ const page2 = () => {
   ]
 
   // check mobile
-  // const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
-  // const checkIsMobile = () => {
-  //   if (window.innerWidth <= 1200 || window.innerHeight <= 800) setIsMobile(true);
-  //   else setIsMobile(false);
-  // }
+  const checkIsMobile = () => {
+    if (window.innerWidth <= 1200 || window.innerHeight <= 800) setIsMobile(true);
+    else setIsMobile(false);
+  }
 
-  // useEffect(() => {
-  //   window.addEventListener('resize', checkIsMobile);
-  //   checkIsMobile();
-  // }, []);
+  useEffect(() => {
+    window.addEventListener('resize', checkIsMobile);
+    checkIsMobile();
+  }, []);
 
   // panel
   const leftArrowIcon: imageProps = {
