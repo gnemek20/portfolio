@@ -76,6 +76,25 @@ export default function Home() {
   useEffect(() => {
     // window.addEventListener('resize', onResizeHeight);
     onResizeHeight();
+
+    // window.setInterval(() => {
+    //   console.log(123);
+    //   window.clearInterval();
+    // }, 100)
+
+    const interval = setInterval(() => {
+      console.log(window.scrollY);
+
+      if (window.scrollY !== 0) {
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+          clearInterval(interval);
+        }, 500);
+      }
+      else if (window.scrollY === 0) {
+        clearInterval(interval)
+      }
+    }, 100);
   }, []);
 
   return (
