@@ -50,7 +50,7 @@ const page1 = (props: page1Props) => {
       <div className={styles.content}>
         <h1 className={styles.name}>GWON MINSEOK</h1>
         <hr />
-        <h4>FrontEnd Developer</h4>
+        <h4>Rhino Developer</h4>
       </div>
       <Image
         className={styles.downArrowImage}
