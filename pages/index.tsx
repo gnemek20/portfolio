@@ -61,8 +61,6 @@ export default function Home() {
   // resize
   const onResizeHeight = () => {
     const windowInnerHeight = window.innerHeight;
-
-    document.documentElement.style.setProperty('--vh', `${windowInnerHeight}px`);
     setPageInnerHeight(windowInnerHeight);
   }
 
