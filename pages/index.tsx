@@ -61,8 +61,6 @@ export default function Home() {
   // resize
   const onResizeHeight = () => {
     const windowInnerHeight = window.innerHeight;
-
-    homeRef.current?.style.setProperty('transform', `translateY(-${windowInnerHeight * currentPageNumber}px)`);
     setPageInnerHeight(windowInnerHeight);
   }
 
@@ -70,6 +68,10 @@ export default function Home() {
     if (currentPageNumber === 0) setIsVideoRunning(true);
     else setIsVideoRunning(false);
   }, [currentPageNumber]);
+
+  useEffect(() => {
+    homeRef.current?.style.setProperty('transform', `translateY(-${pageInnerHeight * currentPageNumber}px)`);
+  }, [pageInnerHeight]);
 
   useEffect(() => {
     window.addEventListener('resize', onResizeHeight);
