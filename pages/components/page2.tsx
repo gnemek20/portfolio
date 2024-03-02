@@ -1,5 +1,5 @@
 import styles from "@/styles/Page2.module.scss";
-import { ImageProps, StaticImport } from "next/dist/shared/lib/get-img-props";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 
 const page2 = () => {
@@ -10,7 +10,7 @@ const page2 = () => {
   }
 
   const backgroundImage: imageProps = {
-    src: require('@/public/images/page2Background.png'),
+    src: require('@/public/images/page2Background.jpg'),
     alt: 'backgroundImage'
   }
 
