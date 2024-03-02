@@ -137,8 +137,8 @@ const page2 = () => {
                   </div>
                   <div className={styles.skillList}>
                     {
-                      mainSkillList.map((skill: skillListProps) => (
-                        <div className={styles.skill}>
+                      mainSkillList.map((skill: skillListProps, index: number) => (
+                        <div className={styles.skill} key={index}>
                           <div className={styles.skillImage}>
                             <Image
                               src={skill.image}
@@ -160,8 +160,8 @@ const page2 = () => {
                   </div>
                   <div className={styles.skillList}>
                     {
-                      subSkillList.map((skill: skillListProps) => (
-                        <div className={styles.skill}>
+                      subSkillList.map((skill: skillListProps, index: number) => (
+                        <div className={styles.skill} key={index}>
                           <div className={styles.skillImage}>
                             <Image
                               src={skill.image}
