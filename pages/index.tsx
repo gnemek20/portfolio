@@ -76,7 +76,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
-    }, 100);
+    }, 250);
 
     window.addEventListener('resize', onResizeHeight);
     onResizeHeight();
