@@ -70,12 +70,12 @@ export default function Home() {
   }, [currentPageNumber]);
 
   useEffect(() => {
-    homeRef.current?.style.setProperty('transform', `translateY(-${pageInnerHeight * currentPageNumber}px)`);
+    // homeRef.current?.style.setProperty('transform', `translateY(-${pageInnerHeight * currentPageNumber}px)`);
   }, [pageInnerHeight]);
 
   useEffect(() => {
-    window.addEventListener('resize', onResizeHeight);
-    onResizeHeight();
+    // window.addEventListener('resize', onResizeHeight);
+    // onResizeHeight();
   }, []);
 
   return (
@@ -96,7 +96,8 @@ export default function Home() {
         <h1>2</h1>
       </div>
       <div style={{height: pageInnerHeight}}>
-        <Page3 />
+        {/* <Page3 /> */}
+        <h1>3</h1>
       </div>
     </div>
   );
