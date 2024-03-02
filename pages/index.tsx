@@ -71,8 +71,6 @@ export default function Home() {
 
   useEffect(() => {
     homeRef.current?.style.setProperty('transform', `translateY(-${pageInnerHeight * currentPageNumber}px)`);
-    console.log(pageInnerHeight, currentPageNumber);
-    console.log('page resized');
   }, [pageInnerHeight]);
 
   useEffect(() => {
@@ -93,7 +91,7 @@ export default function Home() {
         <Page1 play={isVideoRunning} />
       </div>
       <div style={{height: pageInnerHeight}}>
-        <Page2 />
+        {/* <Page2 /> */}
       </div>
       <div style={{height: pageInnerHeight}}>
         <Page3 />
