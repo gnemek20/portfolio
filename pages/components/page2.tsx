@@ -123,7 +123,7 @@ const page2 = () => {
             <div className={styles.content}>
               <div className={`${styles.panel} ${currentPanelNumber === firstPanelNumber && styles.active}`}>
                 <div className={styles.title}>
-                  <h1>About Me</h1>
+                  <h1>Profile</h1>
                 </div>
                 <div className={styles.text}>
                   <h3>안녕하세요</h3>
