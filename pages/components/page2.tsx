@@ -131,8 +131,7 @@ const page2 = () => {
                   <h1>Profile</h1>
                 </div>
                 <div className={styles.text}>
-                  <h3>안녕하세요</h3>
-                  <h3>반갑습니다</h3>
+                  <h3>이름: 권민석</h3>
                 </div>
               </div>
               <div className={`${styles.panel} ${currentPanelNumber === lastPanelNumber && styles.active}`}>

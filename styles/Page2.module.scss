@@ -167,8 +167,7 @@
   }
 }
 
-@media screen and (max-width: 1200px), screen and (max-height: 900px) {
-// @media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) and (min-width: 761px), screen and (max-height: 900px) {
   .wrapper {
     width: calc(919px * 0.4 * 2) !important;
     height: calc(1280px * 0.4) !important;
@@ -198,34 +197,32 @@
 }
 
 @media screen and (max-width: 760px), screen and (max-height: 600px) {
-// @media screen and (max-width: 760px) {
   .wrapper {
     width: calc(919px * 0.37) !important;
     height: calc(1280px * 0.37) !important;
 
     .left {
       padding: 15px 25px !important;
-      text-align: center;
       
       .paper {
         transform: translateX(-50%) translateY(-50%) !important;
         left: 50% !important;
       }
+      .panel {
+        .subSkill {
+          margin-top: 30px !important;
+        }
+        .title {
+          margin-bottom: 10px !important;
+        }
+        .skillList {
+          grid-auto-rows: 50px !important;
+          column-gap: 25px !important;
+        }
+      }
     }
     .right {
       display: none !important;
-    }
-    .panel {
-      .subSkill {
-        margin-top: 30px !important;
-      }
-      .title {
-        margin-bottom: 10px !important;
-      }
-      .skillList {
-        grid-auto-rows: 50px !important;
-        column-gap: 25px !important;
-      }
     }
   }
 }
