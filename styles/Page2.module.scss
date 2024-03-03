@@ -144,7 +144,26 @@
   }
 }
 
-@media screen and (max-width: 1200px), screen and (max-height: 800px) {
+@media screen and (max-width: 1200px), screen and (max-height: 840px) {
+  .wrapper {
+    width: calc(919px * 0.4 * 2) !important;
+    height: calc(1280px * 0.4) !important;
+
+    .panel {
+      .subSkill {
+        margin-top: 35px !important;
+      }
+      .title {
+        margin-bottom: 15px !important;
+      }
+      .skillList {
+        grid-auto-rows: 55px !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 760px), screen and (max-height: 800px) {
   .wrapper {
     width: calc(919px * 0.37) !important;
     height: calc(1280px * 0.37) !important;
