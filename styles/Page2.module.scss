@@ -149,6 +149,11 @@
     width: calc(919px * 0.4 * 2) !important;
     height: calc(1280px * 0.4) !important;
 
+    .left {
+      .paper {
+        transform: scaleX(-1) scaleY(-1) translateX(-1px) translateY(calc(50% + 4px)) !important;
+      }
+    }
     .panel {
       .subSkill {
         margin-top: 35px !important;
@@ -171,13 +176,14 @@
     .left {
       padding: 15px 25px !important;
       text-align: center;
+      
+      .paper {
+        transform: translateX(-50%) translateY(-50%) !important;
+        left: 50% !important;
+      }
     }
     .right {
       display: none !important;
-    }
-    .paper {
-      transform: translateX(-50%) translateY(-50%) !important;
-      left: 50% !important;
     }
     .panel {
       .subSkill {
