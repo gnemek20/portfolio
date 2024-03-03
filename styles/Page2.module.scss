@@ -144,7 +144,8 @@
   }
 }
 
-@media screen and (max-width: 1200px), screen and (max-height: 840px) {
+@media screen and (max-width: 1200px), screen and (max-height: 800px) {
+// @media screen and (max-width: 1200px) {
   .wrapper {
     width: calc(919px * 0.4 * 2) !important;
     height: calc(1280px * 0.4) !important;
@@ -168,7 +169,8 @@
   }
 }
 
-@media screen and (max-width: 760px), screen and (max-height: 800px) {
+@media screen and (max-width: 760px), screen and (max-height: 550px) {
+// @media screen and (max-width: 760px) {
   .wrapper {
     width: calc(919px * 0.37) !important;
     height: calc(1280px * 0.37) !important;
