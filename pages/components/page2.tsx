@@ -24,6 +24,11 @@ const page2 = () => {
     alt: 'paperRightImage'
   }
 
+  const webStackImage: imageProps = {
+    src: require('@/public/images/webStack.jpg'),
+    alt: 'webStackImage'
+  }
+
   const foldedNoteIcon: imageProps = {
     src: require('@/public/icons/foldedNote.svg'),
     alt: 'foldedNoteIcon'
@@ -126,8 +131,7 @@ const page2 = () => {
                   <h1>Profile</h1>
                 </div>
                 <div className={styles.text}>
-                  <h3>안녕하세요</h3>
-                  <h3>반갑습니다</h3>
+                  <h3>이름: 권민석</h3>
                 </div>
               </div>
               <div className={`${styles.panel} ${currentPanelNumber === lastPanelNumber && styles.active}`}>
@@ -205,7 +209,16 @@ const page2 = () => {
               alt={paperRightImage.alt}
             ></Image>
             <div className={styles.content}>
+              <div className={`${styles.panel} ${currentPanelNumber === firstPanelNumber && styles.active}`}>
+                <Image
+                  className={styles.webStack}
+                  src={webStackImage.src}
+                  alt={webStackImage.alt}
+                ></Image>
+              </div>
+              <div className={`${styles.panel} ${currentPanelNumber === lastPanelNumber && styles.active}`}>
 
+              </div>
             </div>
           </div>
         </div>
