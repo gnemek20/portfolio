@@ -132,6 +132,12 @@ const page2 = () => {
                 </div>
                 <div className={styles.text}>
                   <h3>이름: 권민석</h3>
+                  <br />
+                  <h3>최종 학력: 선린 인터넷 고등학교</h3>
+                  <h3>학과: 정보보호과</h3>
+                  <br />
+                  <h3>메일: gms030914@gmail.com</h3>
+                  <h3>핸드폰: 010-5357-5597</h3>
                 </div>
               </div>
               <div className={`${styles.panel} ${currentPanelNumber === lastPanelNumber && styles.active}`}>
