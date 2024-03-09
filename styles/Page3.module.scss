@@ -109,7 +109,7 @@
       }
       .hoveredItem {
         filter: none;
-        animation: none;
+        animation-play-state: paused;
       }
     }
   }
