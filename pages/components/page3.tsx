@@ -1,9 +1,13 @@
 import styles from "@/styles/Page3.module.scss";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
-const page3 = () => {
+interface page3Props {
+  onChangeIsShowingModalStatus?: Function
+}
+
+const page3 = (props: page3Props) => {
   type imageType = StaticImport;
   interface imageProps {
     src: imageType,
@@ -66,11 +70,40 @@ const page3 = () => {
     setMouseOveredPortfolio('');
   }
 
+  // modal
+  const modalRef = useRef<HTMLDivElement>(null);
+  const [isShowingModal, setIsShowingModal] = useState<boolean>(false);
+
   const onClickPortfolio = () => {
+    const isNowShowingModal = true;
+
+    setIsShowingModal(isNowShowingModal);
+    if (props.onChangeIsShowingModalStatus) props.onChangeIsShowingModalStatus(isNowShowingModal);
+  }
+  
+  const onClickModal = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event.target === modalRef.current) {
+      const isNowShowingModal = false;
+
+      setIsShowingModal(isNowShowingModal);
+      if (props.onChangeIsShowingModalStatus) props.onChangeIsShowingModalStatus(isNowShowingModal);
+    }
   }
 
   return (
     <div className={styles.section}>
+      <div
+        ref={modalRef}
+        className={`
+          ${styles.modal}
+          ${isShowingModal ? styles.active : styles.disabled}
+        `}
+        onClick={(event) => onClickModal(event)}
+      >
+        <div className={styles.wrapper}>
+
+        </div>
+      </div>
       <div className={styles.dimmed}></div>
       <Image
         className={styles.backgroundImage}

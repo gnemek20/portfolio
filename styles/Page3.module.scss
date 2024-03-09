@@ -4,6 +4,32 @@
   height: 100%;
   overflow: hidden;
 
+  .active {
+    display: block;
+  }
+  .disabled {
+    display: none;
+  }
+  .modal {
+    z-index: 15;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 900px;
+      height: 540px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: white;
+    }
+  }
   .dimmed {
     z-index: 10;
     position: absolute;
@@ -83,7 +109,26 @@
       }
       .hoveredItem {
         filter: none;
+        animation: none;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 960px) and (min-width: 761px){
+  .modal {
+    .wrapper {
+      width: 700px !important;
+      height: 540px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .modal {
+    .wrapper {
+      width: 320px !important;
+      height: 480px !important;
     }
   }
 }
