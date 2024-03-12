@@ -54,8 +54,8 @@ export default function Home() {
   }
 
   // transition
-  const onHomeRefTransitionEnd = () => {
-    setIsTransitionRunning(false);
+  const onHomeRefTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
+    if (event.target === homeRef.current) setIsTransitionRunning(false);
   }
 
   // modal
@@ -93,7 +93,7 @@ export default function Home() {
     <div
       ref={homeRef}
       className={styles.home}
-      onTransitionEnd={onHomeRefTransitionEnd}
+      onTransitionEnd={(event) => onHomeRefTransitionEnd(event)}
       onWheel={(event) => onWheel(event)}
       onTouchStart={(event) => onTouchStart(event)}
       onTouchMove={(event) => onTouchMove(event)}
