@@ -23,11 +23,60 @@
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 900px;
       height: 540px;
       padding: 10px;
       border-radius: 5px;
       background-color: white;
+      
+      .description {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-top: 30px;
+        gap: 10px;
+      }
+      .flickingContainer {
+        position: relative;
+        margin-top: auto;
+        width: 100%;
+        height: 360px;
+
+        .flickingPanel {
+          cursor: pointer;
+          z-index: 1;
+          min-width: 90%;
+          height: 100%;
+          margin-left: 5px;
+          margin-right: 5px;
+          background-color: var(--dark-gray);
+
+          img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      .closeModalButton {
+        cursor: pointer;
+        position: absolute;
+        transform: translateX(-5px) translateY(150%);
+        right: 0;
+        bottom: 0;
+        width: 20px;
+        height: 20px;
+
+        img {
+          filter: invert(1);
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
   }
   .dimmed {
@@ -39,7 +88,7 @@
   }
   .backgroundImage {
     position: absolute;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-60%);
     top: 50%;
     left: 50%;
     min-width: 100%;
@@ -115,11 +164,15 @@
   }
 }
 
-@media screen and (max-width: 960px) and (min-width: 761px){
+@media screen and (max-width: 960px) and (min-width: 761px) {
   .modal {
     .wrapper {
       width: 700px !important;
       height: 540px !important;
+
+      .flickingContainer {
+        height: 360px !important;
+      }
     }
   }
 }
@@ -129,6 +182,17 @@
     .wrapper {
       width: 320px !important;
       height: 480px !important;
+
+      .description {
+        width: 80% !important;
+      }
+      .flickingContainer {
+        height: 300px !important;
+  
+        .flickingPanel {
+          min-width: 80% !important;
+        }
+      }
     }
   }
 }
