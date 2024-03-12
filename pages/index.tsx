@@ -33,7 +33,7 @@ export default function Home() {
     else if (touchedClientY < (movedClientY - offset)) movePage('up');
   }
   const movePage = (direction: directionType) => {
-    if (isTransitionRunning) return;
+    if (isTransitionRunning || isShowingModal) return;
     
     const firstPageNumber: number = 0;
     const lastPageNumber: number = 2;
@@ -56,6 +56,13 @@ export default function Home() {
   // transition
   const onHomeRefTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
     if (event.target === homeRef.current) setIsTransitionRunning(false);
+  }
+
+  // modal
+  const [isShowingModal, setIsShowingModal] = useState<boolean>(false);
+
+  const onChangeIsShowingModalStatus = (bool: boolean) => {
+    setIsShowingModal(bool);
   }
 
   // resize
@@ -98,7 +105,7 @@ export default function Home() {
         <Page2 />
       </div>
       <div style={{height: pageInnerHeight > 0 ? pageInnerHeight : '100vh'}}>
-        <Page3 />
+        <Page3 onChangeIsShowingModalStatus={onChangeIsShowingModalStatus} />
       </div>
     </div>
   );
